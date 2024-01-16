@@ -9,14 +9,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/movies")
+@RequestMapping("/api/v1/movies")// it like app.get('/api/v1/movies')
+//use Movies model to access data.
 public class MovieController {
 
-    @Autowired
+    @Autowired //it 
     private MovieService service;
 
-    @GetMapping
+    @GetMapping//annotation on is applied to the below method here method(){just like function}
+    //getMapping get called when RequestMapping is hitted by the client.
+    //moviecontroller is using movieservice.java
     public ResponseEntity<List<Movie>> getMovies() {
+        //this is init
         return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
     }
 

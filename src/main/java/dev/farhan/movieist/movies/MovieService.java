@@ -10,8 +10,9 @@ import java.util.Optional;
 public class MovieService {
 
     @Autowired
-    private MovieRepository repository;
-
+    private MovieRepository repository;//mongoose is in MovieRepository and now repository is the copy that.
+    //it is through which the database operations are possible
+    //function List of movie is being retured when called this operation.. in controller
     public List<Movie> findAllMovies() {
         return repository.findAll();
     }
