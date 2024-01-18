@@ -1,0 +1,47 @@
+here if the request body contains the 2-3 key value pairs we use <String ,String>
+or DTO(Data Transfer Objects)
+
+implementation:
+{
+//this is the request to the server
+  "reviewBody": "This movie is awesome!",
+  "imdbId": "tt1234567",
+  "additionalValue": "Some additional information"
+}
+
+for implementation of DTO or Transferring the data to the objects;:
+public class someclass{
+    private String reviewBody;
+    private String ImdbId;
+    private int additionalValue();
+} 
+if it is donewith DOT:
+public ResponseEntity<Review> method(@RequestBody ReviewRequest request) {
+    // Access properties of the ReviewRequest object
+    String reviewBody = request.getReviewBody();
+    String imdbId = request.getImdbId();
+    int someNumber = request.getSomeNumber();
+
+    // Call your service method with the extracted values
+    return new ResponseEntity<Review>(service.createReview(reviewBody, imdbId, someNumber), HttpStatus.OK);
+}
+
+
+
+if it is done with <String,String>
+in controller:
+@PostMapping()
+public ReponseEntiry<Review> method(@RequestBody Map<String,String> payload){
+return new ReponseEntiry<Review>(services.findByimdbIdAndPost(payload.get("reviewComment"),payload.get("imdbId")),HttpStatus.OK);
+}
+
+
+
+
+//on the basis of the imdbId we are posting the review into the object,removing the objectId as the request from the client side.
+here, the service is responsible for performing the operation inside the database through the interface layer of the database.
+the reviewComment is need to be posted into the imdbId.
+public <Review> findByimdbIdAndPost(Stringimdb,String reviewBody){
+    return interfacelayer.findByimdbIdAndPost(reviewBody);
+    //here the @Data annotation from the project will understand the query and do according to it.
+}

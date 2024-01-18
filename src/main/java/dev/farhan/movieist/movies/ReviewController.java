@@ -20,3 +20,13 @@ public class ReviewController {
         return new ResponseEntity<Review>(service.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.OK);
     }
 }
+//private ObjectId id;
+    //private String body;
+    //private LocalDateTime created;
+    //private LocalDateTime updated;
+
+    //public Review(String body, LocalDateTime created, LocalDateTime updated) {
+        //this.body = body;
+        //this.created = created;
+        //this.updated = updated;
+    //
