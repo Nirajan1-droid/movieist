@@ -31,7 +31,7 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
     }
 
-    @GetMapping("/{imdbId}")
+    @GetMapping("/{imdbId}")//optional refers to it could also return null from the database.
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){//pathvariable just like params.keypassed
         return new ResponseEntity<Optional<Movie>>(service.findMovieByImdbId(imdbId), HttpStatus.OK);
     }

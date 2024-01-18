@@ -1,0 +1,7 @@
+repository class is a design pattern to seperate the logic that retrieves 
+data from the database from the application.
+this layer provides the set of methods to interact with the data store without exposing the details of the
+[something is safe here confidently] data access code to the higher  layers of the applicatoin.
+
+provides the clean API for the rest of the application.
+centralize and manage the code responsible for ineteracting with the db.
