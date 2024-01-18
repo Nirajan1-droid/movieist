@@ -17,6 +17,7 @@ public class MovieService {
     public List<Movie> findAllMovies() {
         return repository.findAll();//that created single instance is used.
         //but what that repository contains? it contains MongoRepository
+        //findAll is the inherited method of the mongorepository.
     }
     public Optional<Movie> findMovieByImdbId(String imdbId) {
         return repository.findMovieByImdbId(imdbId);

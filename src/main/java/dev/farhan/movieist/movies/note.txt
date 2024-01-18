@@ -5,3 +5,44 @@ this layer provides the set of methods to interact with the data store without e
 
 provides the clean API for the rest of the application.
 centralize and manage the code responsible for ineteracting with the db.
+
+public interface MovieRepository extends MongoRepository<Movie, ObjectId> {//its like using the mongoose = MovieRepository
+
+Movie = model[what type of data are we dealing with are specified in the movie model]
+ObjectId = type of Id we are dealing with
+
+public Optional<Movie> custommethodcalledincontroller1(String imdbId) {
+        return repository.cusmethodconnectswithinterfaceofdatabase2(imdbId);
+    }
+so how does the custommethodconnectswithinterfaceofdatabase2 knows it has to extract the data on the basis of the imdbId.
+i thought the method names are specified just like the findAll() method in the upper part  of the code.
+but here is another thing going on.
+
+explanation:
+in MongoRepository:
+@Repository
+public interface MovieRepository extends MongoRepository<Movie, ObjectId> {//its like using the mongoose = MovieRepository
+    Optional<Movie> custommethodcalledincontroller(String imdbId);
+}
+
+this interface is part of the spring Data mongodb framework and provides a ser of predefined
+methods for ineteracting with database.
+ custommethodcalledincontroller1 is defined on the MovieRepository. is a method 
+ method signature that follows the spring Data naming Convention.
+ Spring Data Interprets method names and generate queries based on them.
+ the method name is broken into parts and the framework generate a query to retrieve the desired data.
+
+ custommethodcalledincontroller is interpreted by the framework as its a custom query method.
+ it tries to understands the method name and try to convert the method into the query.
+
+so, the naming convention is a powerful feature that allows you to define repository methods based on method names,makinig it easy to express queries in a readable and undestable way.
+the framework automatically interprets the method name and generates appropriate queries.
+its generally good practice to follw the naming conventions provided by springdata.
+this makes you codemore exrpessive and it alligns with the conventions over coniguration philosophy of spring.
+
+spring datahas a set of conventions for method naming and its a good idea to adhere to these conventions for consistency and clarity.
+methods that retrieve data based on a fieled value typically follow the patter 
+findByFieldName.
+consider QueryDSL:
+if the query becomes complex and the method naming convention is not sufficient
+you can explore using QueryDSL or annoateted queries in the repository.
