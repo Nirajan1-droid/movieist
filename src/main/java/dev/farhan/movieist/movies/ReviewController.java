@@ -18,6 +18,7 @@ public class ReviewController {
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {
 
         return new ResponseEntity<Review>(service.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.OK);
+        //the contorller then returns teh service class returned review object as Review here to the client with the status code.
     }
 }
 //private ObjectId id;

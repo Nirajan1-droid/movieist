@@ -16,15 +16,18 @@ public class someclass{
     private int additionalValue();
 } 
 if it is donewith DOT:
-public ResponseEntity<Review> method(@RequestBody ReviewRequest request) {
+public ResponseEntity<Review> method(@RequestBody somegenericdeclarationclass request) {// request is neccessary ,just like payload for <String , String>
     // Access properties of the ReviewRequest object
-    String reviewBody = request.getReviewBody();
+    String reviewBody = request.getReviewBody();                             //accessing the somegenericdeclarationclass properties through naming conventions. getFieldName() for fieldName.
     String imdbId = request.getImdbId();
     int someNumber = request.getSomeNumber();
 
     // Call your service method with the extracted values
     return new ResponseEntity<Review>(service.createReview(reviewBody, imdbId, someNumber), HttpStatus.OK);
 }
+//In Java, the naming convention for getter and setter methods follows a specific pattern. For a field named fieldName, the getter method is typically named getFieldName().
+
+//In your ReviewRequest class, you have a private field named reviewBody, and you've provided a getter method named getReviewBody(). This is following the JavaBeans naming convention.
 
 
 
